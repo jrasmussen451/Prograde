@@ -1,0 +1,66 @@
+<section class="home-view">
+    <div class="custom-message" ng-include="'partials/customMessage.html'"></div>
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="order-types">
+                <div class="panel panel-default" ng-show="hasStandardTypes">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{'Standard' | r}} {{'Orders' | r}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'Standard'}" ng-show="criteria.Count">
+                                <a ng-href="#" ng-click="selectOrderType($event,{{criteria}})">{{criteria.DisplayName | r}} <span class="badge">{{criteria.Count}}</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default" ng-show="hasReplenishmentTypes">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{'Replenishment' | r}} {{'Orders' | r}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'Replenishment'}" ng-show="criteria.Count">
+                                <a ng-href="#" ng-click="selectOrderType($event,{{criteria}})">{{criteria.DisplayName | r}} <span class="badge" >{{criteria.Count}}</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default" ng-show="hasPriceRequestTypes">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{'Price Request' | r}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'PriceRequest'}" ng-show="criteria.Count">
+                                <a ng-href="#" ng-click="selectOrderType($event,{{criteria}})">{{criteria.DisplayName | r}} <span clas="badge">{{criteria.Count}}</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body custom-content" ng-include="'partials/customContent.html'"></div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Custom Pages</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                        <li><a href="#">Page 4</a></li>
+                        <li><a href="#">Page 5</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
